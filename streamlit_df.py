@@ -78,15 +78,27 @@ def main():
             show_data(tabs, df)
 
     st.header("AI Agent Output Directory")
+    import streamlit as st
+    import subprocess
+
     if st.button('Open Directory'):
-            os.startfile(os.getcwd())# Current Working Directory
-            url = f"file://{directory_path}"
-            webbrowser.open(url)
+        directory_path = os.getcwd()  # 当前工作目录
+
+        if st._is_running_with_streamlit:
+            if st._is_running_with_streamlit:
+                subprocess.Popen(['xdg-open', directory_path])
+            else:
+                subprocess.Popen(['open', directory_path])
+        else:
+            subprocess.Popen(['start', '', directory_path], shell=True)
 
     imgs_png = glob.glob('*.png')
     imgs_jpg = glob.glob('*.jpg')
     imgs_jpeeg = glob.glob('*.jpeg')
     imgs_ = imgs_png + imgs_jpg + imgs_jpeeg
+    if len(imgs_) > 0:
+        img = image_select("Generated Charts", imgs_, captions=imgs_, return_value='index')
+        st.write(img)
 
     if len(imgs_) > 0:
         img = st.selectbox("Generated Charts", imgs_, format_func=lambda x: f"![{x}]({x})")
