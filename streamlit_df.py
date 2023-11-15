@@ -4,7 +4,7 @@ from streamlit_chat import message
 from streamlit_image_select import image_select
 import pandas as pd
 import numpy as np
-
+import webbrowser
 from functions import *
 
 file_formats = {
@@ -79,7 +79,9 @@ def main():
 
     st.header("AI Agent Output Directory")
     if st.button('Open Directory'):
-        os.startfile(os.getcwd())  # Current Working Directory
+            os.startfile(os.getcwd())# Current Working Directory
+            url = f"file://{directory_path}"
+            webbrowser.open(url)
 
     imgs_png = glob.glob('*.png')
     imgs_jpg = glob.glob('*.jpg')

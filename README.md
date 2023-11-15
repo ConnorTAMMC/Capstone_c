@@ -4,6 +4,9 @@
 Python Streamlit web application designed to provide a user-friendly interface for querying and using the OpenAI language model to communicate with data such as such as CSV, XLSX, or XLS
 The script begins by importing the necessary libraries, including os for operating system interactions, streamlit for building web applications, pandas for data manipulation, open_ai key for loading environment variables, and langchain to for interacting with the openAI API and creating a Pandas DF agent.
 
+#### Data collect
+* load the data(![img.png](picture/img.png))
+* chat box (![img_1.png](picture/img_1.png))
 
 
 #### Requirements:
