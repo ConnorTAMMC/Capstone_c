@@ -11,10 +11,8 @@ from dotenv import load_dotenv
 import os
 from typing import NamedTuple
 
-load_dotenv()
 
 def setopenai(key):
-
     os.environ['OPENAI_API_KEY'] = key
 def save_chart(query):
     q_s= "If any charts or graphs or plots were created save them localy and include the save file names in your response."

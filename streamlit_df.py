@@ -4,7 +4,6 @@ from streamlit_chat import message
 from streamlit_image_select import image_select
 import pandas as pd
 import numpy as np
-from dotenv import load_dotenv
 
 from functions import *
 
@@ -122,5 +121,4 @@ if __name__ == "__main__":
     if 'tabs' not in st.session_state:
         st.session_state['tabs'] = []
 
-    load_dotenv() # Import enviornmental variables
     main()
