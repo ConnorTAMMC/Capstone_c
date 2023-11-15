@@ -15,12 +15,7 @@ load_dotenv()
 
 def setopenai(key):
 
-    if os.environ.get('OPENAI_API_KEY') is not None:
-        key = os.environ['OPENAI_API_KEY']
-    else:
-        _ = load_dotenv(find_dotenv())  # read local .env file
-        key = os.environ['OPENAI_API_KEY']
-    # os.environ['OPENAI_API_KEY'] = key
+    os.environ['OPENAI_API_KEY'] = key
 def save_chart(query):
     q_s= "If any charts or graphs or plots were created save them localy and include the save file names in your response."
     query += "."+q_s
