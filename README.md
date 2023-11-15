@@ -8,7 +8,7 @@ The script begins by importing the necessary libraries, including os for operati
 
 #### Requirements:
 * Open AI API Key:  [click here](https://platform.openai.com/account/api-keys).
-![Open AI Key Placement](media/openai_key.png)
+![Open AI Key Placement](picture/openai_key.png)
 
 #### Access Previous Conversations:
 
