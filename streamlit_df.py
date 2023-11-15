@@ -87,9 +87,10 @@ def main():
     imgs_jpg = glob.glob('*.jpg')
     imgs_jpeeg = glob.glob('*.jpeg')
     imgs_ = imgs_png + imgs_jpg + imgs_jpeeg
+
     if len(imgs_) > 0:
-        img = image_select("Generated Charts", imgs_, captions=imgs_, return_value='index')
-        st.write(img)
+        img = st.selectbox("Generated Charts", imgs_, format_func=lambda x: f"![{x}]({x})")
+        st.markdown(img)
 
     st.header("Query The Dataframes")
     x=0
