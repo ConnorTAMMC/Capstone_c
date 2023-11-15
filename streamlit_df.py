@@ -7,6 +7,8 @@ import numpy as np
 import webbrowser
 from functions import *
 
+import subprocess
+
 file_formats = {
         "csv": pd.read_csv,
         "xls": pd.read_excel,
@@ -78,8 +80,6 @@ def main():
             show_data(tabs, df)
 
     st.header("AI Agent Output Directory")
-    import streamlit as st
-    import subprocess
 
     if st.button('Open Directory'):
         directory_path = os.getcwd()  # 当前工作目录
@@ -99,10 +99,6 @@ def main():
     if len(imgs_) > 0:
         img = image_select("Generated Charts", imgs_, captions=imgs_, return_value='index')
         st.write(img)
-
-    if len(imgs_) > 0:
-        img = st.selectbox("Generated Charts", imgs_, format_func=lambda x: f"![{x}]({x})")
-        st.markdown(img)
 
     st.header("Query The Dataframes")
     x=0
