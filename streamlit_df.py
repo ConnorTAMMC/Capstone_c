@@ -6,8 +6,10 @@ import pandas as pd
 import numpy as np
 import webbrowser
 from functions import *
-
+import os
+import platform
 import subprocess
+
 
 file_formats = {
         "csv": pd.read_csv,
@@ -80,8 +82,18 @@ def main():
             show_data(tabs, df)
 
     st.header("AI Agent Output Directory")
+
     if st.button('Open Directory'):
-        os.startfile(os.getcwd())  # Current Working Directory
+        current_platform = platform.system()
+
+        if current_platform == 'Windows':
+            os.startfile(os.getcwd())
+        elif current_platform == 'Darwin':  # macOS
+            subprocess.Popen(['open', os.getcwd()])
+        elif current_platform == 'Linux':
+            subprocess.Popen(['xdg-open', os.getcwd()])
+        else:
+            st.error(f"Unsupported platform: {current_platform}")
 
     imgs_png = glob.glob('*.png')
     imgs_jpg = glob.glob('*.jpg')
