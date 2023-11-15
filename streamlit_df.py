@@ -80,17 +80,8 @@ def main():
             show_data(tabs, df)
 
     st.header("AI Agent Output Directory")
-
     if st.button('Open Directory'):
-        directory_path = os.getcwd()  # 当前工作目录
-
-        if st._is_running_with_streamlit:
-            if st._is_running_with_streamlit:
-                subprocess.Popen(['xdg-open', directory_path])
-            else:
-                subprocess.Popen(['open', directory_path])
-        else:
-            subprocess.Popen(['start', '', directory_path], shell=True)
+        os.startfile(os.getcwd())  # Current Working Directory
 
     imgs_png = glob.glob('*.png')
     imgs_jpg = glob.glob('*.jpg')
